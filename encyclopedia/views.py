@@ -40,3 +40,15 @@ def searchpage(request):
         return render(request, "encyclopedia/search.html", {
             "entries": found_entries
         })
+
+def newentry(request):
+    return render(request, "encyclopedia/newentry.html")
+
+def saveentry(request):
+    title = request.POST.get("t", "")
+    content = request.POST.get("content","")
+    if title.lower() in [entry.lower() for entry in util.list_entries()]:
+        return HttpResponse("Cannot save page. Page already exists")
+    with open(f"entries/{title}.md", "w") as file:
+        file.write(content)
+    return redirect("wiki:pages", title)
