@@ -52,3 +52,16 @@ def saveentry(request):
     with open(f"entries/{title}.md", "w") as file:
         file.write(content)
     return redirect("wiki:pages", title)
+
+def editpage(request):
+    title = request.POST.get("title", "")
+    with open(f"entries/{title}.md", "r") as readfile:
+        content = readfile.read()
+    
+    return render(request, "encyclopedia/editpage.html", {"content": content, "title": title})
+
+def savechanges(request):
+    title = request.POST.get("title", "")
+    content = request.POST.get("editedContent", "")
+    util.save_entry(title, content)
+    return redirect("wiki:pages", title)
