@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 import markdown2
 from django import forms
+import random
 
 from . import util
 
@@ -64,4 +65,8 @@ def savechanges(request):
     title = request.POST.get("title", "")
     content = request.POST.get("editedContent", "")
     util.save_entry(title, content)
+    return redirect("wiki:pages", title)
+    
+def randompage(request):
+    title = random.choice(util.list_entries())
     return redirect("wiki:pages", title)
