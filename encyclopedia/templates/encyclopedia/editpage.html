@@ -3,11 +3,13 @@
 {% block title %} Edit page {% endblock %}
 
 {% block body %}
-    
-    <form action="{% url 'wiki:savechange' %}" method="post">
+    <h2>Edit Post</h2>
+    <hr>
+    <form action="{% url 'wiki:savechange' %}" method="post" class="mt-5 ml-4">
         {% csrf_token %}
-        <input type="hidden" name="title" value="{{title}}">
-        <textarea name="editedContent" id="edit" cols="30" rows="10">{{content}}</textarea>
-        <button type="submit">Save Changes</button>
+        <input type="hidden" name="title" value="{{title}}" class="form-control">
+        <textarea name="editedContent" id="edit" rows="30" class="form-control w-75">{{content}}</textarea>
+
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
     </form>
 {% endblock %}

@@ -3,11 +3,20 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block body %}
+    <div class="p-4">
     {{ body | safe }}
 
     <form action="{% url 'wiki:edit' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="title" value="{{ title }}" >
-        <button type="submit">Edit Post</button>
+        <button type="submit" class="btn btn-warning">Edit Post</button>
     </form>
+    <form action="{% url 'wiki:delete' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="title" value="{{ title }}" >
+        <button type="submit" class="btn btn-danger mt-3">Delete Post</button>
+    </form>
+    </div>
+
+
 {% endblock %}

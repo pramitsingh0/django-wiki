@@ -4,13 +4,15 @@
 
 {% block body %}
     <h2>Create a new wiki page</h2>
+    <hr>
     <form action="{% url 'wiki:saveentry' %}" method="post">
         {%csrf_token%}
         <div>
-            <input type="text" name="t" placeholder="Enter title" style="margin-bottom: 3em;">
+
+            <input type="text" name="t" placeholder="Enter title" class="form-control mb-4 w-25">
         </div>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        <button type="submit" style="border-radius: 5px;">Add to wiki</button>
+        <textarea name="content" id="content" cols="30" rows="20" class="form-control w-75"></textarea>
+        <button type="submit" class="btn btn-primary mt-3">Add to wiki</button>
     </form>
 
 {% endblock %}

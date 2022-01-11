@@ -1,8 +1,10 @@
-from django.http.response import HttpResponse
+from django.core.files.storage import default_storage
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 import markdown2
+from django.urls import reverse
 from django import forms
-import random
+import random, os
 
 from . import util
 
@@ -70,3 +72,10 @@ def savechanges(request):
 def randompage(request):
     title = random.choice(util.list_entries())
     return redirect("wiki:pages", title)
+
+def delete(request):
+    title = request.POST.get("title", "")
+    filename = f"entries/{title}.md"
+    if default_storage.exists(filename):
+        default_storage.delete(filename)
+    return HttpResponseRedirect(reverse("wiki:index"))
