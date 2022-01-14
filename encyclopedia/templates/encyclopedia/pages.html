@@ -4,8 +4,10 @@
 
 {% block body %}
     <div class="p-4">
-    {{ body | safe }}
-
+        <div style="height: 40em;">
+            {{ body | safe }}
+        </div>
+    <div></div>
     <form action="{% url 'wiki:edit' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="title" value="{{ title }}" >
