@@ -24,7 +24,12 @@ $ cd django-wiki
     $ pip install markdown2
     ```
 
+
 ### Usage
+
+
+https://user-images.githubusercontent.com/52959209/150784721-a1102965-071b-4a30-9a85-8fd1c774b905.mp4\
+
 
 [Video](https://1drv.ms/u/s!AlUUWCKJMx__gRPOj2JUYwnOpXfH?e=fyrzok)
 
