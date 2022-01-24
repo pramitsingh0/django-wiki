@@ -26,6 +26,8 @@ $ cd django-wiki
 
 ### Usage
 
+[Video](https://1drv.ms/u/s!AlUUWCKJMx__gRPOj2JUYwnOpXfH?e=fyrzok)
+
 ```
 $ python manage.py runserver
 ```
@@ -33,7 +35,7 @@ $ python manage.py runserver
 After using the above command in your terminal, open your browser and type `127.0.0.1:8000/` in your address bar to open the web application.
 
 ## Contributing
-Pull requests are welcome. For majro changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Contact Developer 
 Gmail: pramitsingh0@gmail.com
